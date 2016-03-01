@@ -22,11 +22,10 @@ create the Podfile by uisng following commands
 
 ```bash
 $ cd <path-to-project/>
-pod init
-open -a Xcode Podfile
+$ pod init
+$ open -a Xcode Podfile
 
 ```
-
 
 
 To integrate this library into your Xcode project using CocoaPods, specify it in your Podfile:
