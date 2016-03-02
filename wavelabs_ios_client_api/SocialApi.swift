@@ -157,8 +157,8 @@ public class SocialApi {
                 
                 var statusCode : Int = response!.statusCode
                 
-                if(JSON != nil){
-                    
+//                if(JSON != nil){
+                
                     
                     if(response!.statusCode == 200){
                         var messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(JSON!)
@@ -170,7 +170,7 @@ public class SocialApi {
                     }else {
                         self.messagesErrorsCodes(JSON!)
                     }
-                }
+//                }
         }
 
     }
