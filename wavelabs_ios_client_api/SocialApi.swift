@@ -157,8 +157,7 @@ public class SocialApi {
                 
                 var statusCode : Int = response!.statusCode
                 
-//                if(JSON != nil){
-                
+                if(JSON != nil){
                     
                     if(response!.statusCode == 200){
                         var messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(JSON!)
@@ -170,7 +169,7 @@ public class SocialApi {
                     }else {
                         self.messagesErrorsCodes(JSON!)
                     }
-//                }
+                }
         }
 
     }
@@ -184,10 +183,6 @@ public class SocialApi {
 
         Alamofire.request(.GET, requestUrl, parameters: nil, encoding: .JSON, headers : ["Authorization" : "Bearer \(token)"])
             .responseJSON { request, response, JSON, error in
-                print(response)
-                print(JSON)
-                print(error)
-                println(response?.statusCode)
                 
                 var statusCode : Int = response!.statusCode
                 
