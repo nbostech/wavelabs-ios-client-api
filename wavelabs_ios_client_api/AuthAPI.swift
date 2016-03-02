@@ -32,7 +32,6 @@ public class AuthApi {
 
     var identityApiUrl : String = "api/identity/v0/auth/"
     
-    
     var loginUrl : String = "login"
     var logOutUrl : String = "logout"
     var changePswUrl : String = "changePassword"
@@ -68,7 +67,7 @@ public class AuthApi {
                     }
                 }
             }
-        }
+    }
     
     public func loginUser(login : NSDictionary) {
         
