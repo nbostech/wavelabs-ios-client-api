@@ -15,7 +15,7 @@ var WAVELABS_CLIENT_ID = NSBundle.mainBundle().infoDictionary?["WavelabsAPISetti
 var WAVELABS_HOST_URL = NSBundle.mainBundle().infoDictionary?["WavelabsAPISettings"]!.objectForKey("WAVELABS_BASE_URL") as! String
 var WAVELABS_CLIENT_SECRET = NSBundle.mainBundle().infoDictionary?["WavelabsAPISettings"]!.objectForKey("WAVELABS_CLIENT_SECRET") as! String
 
-
+var WAVELABS_CLIENT_ACCESS_TOKEN : String = ""
 
 public class Utilities {
 
@@ -78,8 +78,8 @@ public class Utilities {
     
     
     public func getClientAccessToken() -> String{
-        let token: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("access_token")!
-        return token as! String
+//        let token: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("access_token")!
+        return WAVELABS_CLIENT_ACCESS_TOKEN
     }
 
     

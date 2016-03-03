@@ -60,6 +60,9 @@ public class AuthApi {
                 if(JSON != nil){
                     if(response!.statusCode == 200){
                         var tokenDetails : TokenApiModel = Communicator.clientDetailsEntity(JSON! as! NSDictionary)
+                        
+                        WAVELABS_CLIENT_ACCESS_TOKEN = tokenDetails.access_token
+                        
                         self.delegate!.handleClientTokenResponse!(tokenDetails)
                     }else if(response!.statusCode == 400){
                         self.validationErrorsCodes(JSON!)
