@@ -59,7 +59,7 @@ public class AuthApi {
                 
                 if(JSON != nil){
                     if(response!.statusCode == 200){
-                        var tokenDetails : TokenApiModel = Communicator.clientDetailsEntity(JSON! as! NSDictionary)
+                        var tokenDetails : TokenApiModel = Communicator.tokenDetailsEntity(JSON! as! NSDictionary)
                         
                         WAVELABS_CLIENT_ACCESS_TOKEN = tokenDetails.access_token
                         

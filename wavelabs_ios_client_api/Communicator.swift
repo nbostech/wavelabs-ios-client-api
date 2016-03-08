@@ -38,30 +38,35 @@ class Communicator {
     }
     
     
+    
     class func tokenDetailsEntity(tokenDetails: NSDictionary) -> TokenApiModel{
         
         let tokenEntity = TokenApiModel()
         
-        tokenEntity.access_token = Utilities.isValueNull(tokenDetails.objectForKey("access_token")!) as! String
-        tokenEntity.expires_in = Utilities.isValueNull(tokenDetails.objectForKey("expires_in")!) as! Int
-        tokenEntity.refresh_token = Utilities.isValueNull(tokenDetails.objectForKey("refresh_token")!) as! String
-        tokenEntity.scope = Utilities.isValueNull(tokenDetails.objectForKey("scope")!) as! String
-        tokenEntity.token_type = Utilities.isValueNull(tokenDetails.objectForKey("token_type")!) as! String
+        if(tokenDetails.objectForKey("access_token") != nil){
+            tokenEntity.access_token = Utilities.isValueNull(tokenDetails.objectForKey("access_token")!) as! String
+        }
+        
+        if(tokenDetails.objectForKey("expires_in") != nil){
+            tokenEntity.expires_in = Utilities.isValueNull(tokenDetails.objectForKey("expires_in")!) as! Int
+        }
+        
+        if(tokenDetails.objectForKey("refresh_token") != nil){
+            tokenEntity.refresh_token = Utilities.isValueNull(tokenDetails.objectForKey("refresh_token")!) as! String
+        }
+        
+        if(tokenDetails.objectForKey("scope") != nil){
+            tokenEntity.scope = Utilities.isValueNull(tokenDetails.objectForKey("scope")!) as! String
+        }
+        
+        if(tokenDetails.objectForKey("token_type") != nil){
+            tokenEntity.token_type = Utilities.isValueNull(tokenDetails.objectForKey("token_type")!) as! String
+        }
         
         return tokenEntity
     }
     
-    
-    class func clientDetailsEntity(tokenDetails: NSDictionary) -> TokenApiModel{
-        let tokenEntity = TokenApiModel()
-        tokenEntity.access_token = Utilities.isValueNull(tokenDetails.objectForKey("access_token")!) as! String
-        tokenEntity.expires_in = Utilities.isValueNull(tokenDetails.objectForKey("expires_in")!) as! Int
-        tokenEntity.scope = Utilities.isValueNull(tokenDetails.objectForKey("scope")!) as! String
-        tokenEntity.token_type = Utilities.isValueNull(tokenDetails.objectForKey("token_type")!) as! String
-        return tokenEntity
-    }
-
-    
+        
     
     class func memberDetailsEntity(memberDetails: NSDictionary) -> MemberApiModel{
         
