@@ -149,8 +149,15 @@ class Communicator {
         
         let messagesEntity = MessagesApiModel()
         
-        messagesEntity.message = Utilities.isValueNull(JSONdata.objectForKey("message")!) as! String
-        messagesEntity.messageCode = Utilities.isValueNull(JSONdata.objectForKey("messageCode")!) as! String
+        if(JSONdata.objectForKey("message") != nil){
+            messagesEntity.message = Utilities.isValueNull(JSONdata.objectForKey("message")!) as! String
+            messagesEntity.messageCode = Utilities.isValueNull(JSONdata.objectForKey("messageCode")!) as! String
+        }
+        
+        if(JSONdata.objectForKey("error") != nil){
+            messagesEntity.message = Utilities.isValueNull(JSONdata.objectForKey("error_description")!) as! String
+            messagesEntity.messageCode = Utilities.isValueNull(JSONdata.objectForKey("error")!) as! String
+        }
         
         return messagesEntity
     }
