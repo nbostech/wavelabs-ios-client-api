@@ -59,6 +59,7 @@ class Communicator {
             tokenEntity.scope = Utilities.isValueNull(tokenDetails.objectForKey("scope")!) as! String
         }
         
+        
         if(tokenDetails.objectForKey("token_type") != nil){
             tokenEntity.token_type = Utilities.isValueNull(tokenDetails.objectForKey("token_type")!) as! String
         }
