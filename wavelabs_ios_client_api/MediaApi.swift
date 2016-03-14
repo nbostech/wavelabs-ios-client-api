@@ -61,7 +61,8 @@ public class MediaApi {
         }
     }
     
-    public func uploadMedia(){
+    
+    public func uploadMedia(mediaFor : NSString, imgName: NSString){
         var requestUrl = "\(WAVELABS_HOST_URL)\(apiUrl)\(mediaUrl)"
         
         let token: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("access_token")!
@@ -89,7 +90,7 @@ public class MediaApi {
         let value = String(format: "%@",userID!)
         
         let key1 = "mediafor"
-        let value1 = "profile"
+        let value1 = mediaFor
         
 
         
@@ -103,7 +104,7 @@ public class MediaApi {
             multipartFormData: { multipartFormData in
                 multipartFormData.appendBodyPart(data: (value.dataUsingEncoding(NSUTF8StringEncoding)!), name: key)
                 multipartFormData.appendBodyPart(data: (value1.dataUsingEncoding(NSUTF8StringEncoding)!), name: key1)
-                multipartFormData.appendBodyPart(data: imageData!, name: "\(filename)",fileName: "img.png",mimeType: "image/png")
+                multipartFormData.appendBodyPart(data: imageData!, name: "\(filename)",fileName: imgName as String,mimeType: "image/png")
             },
             encodingCompletion: { encodingResult in
                 switch encodingResult {
