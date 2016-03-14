@@ -62,7 +62,7 @@ public class MediaApi {
     }
     
     
-    public func uploadMedia(mediaFor : NSString, imgName: NSString){
+    public func uploadMedia(mediaFor : NSString, imgName: NSString, userID : NSString){
         var requestUrl = "\(WAVELABS_HOST_URL)\(apiUrl)\(mediaUrl)"
         
         let token: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("access_token")!
@@ -79,15 +79,15 @@ public class MediaApi {
         
         var imagesDirectory : String = dirPath.stringByAppendingPathComponent("Images")
         let defaults = NSUserDefaults.standardUserDefaults()
-        let userID = defaults.stringForKey("user_id")
-        var fileName : String =  NSString(format:"%@.png", userID!) as String
+//        let userID = defaults.stringForKey("user_id")
+        var fileName : String =  NSString(format:"%@.png", userID) as String
         var storePath : String = imagesDirectory.stringByAppendingPathComponent(fileName)
         
         let imageData = UIImageJPEGRepresentation(UIImage(contentsOfFile: storePath), 1)
         
         
         let key = "id"
-        let value = String(format: "%@",userID!)
+        let value = userID
         
         let key1 = "mediafor"
         let value1 = mediaFor
