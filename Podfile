@@ -8,7 +8,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'wavelabs_ios_client_api' do
 
-pod 'Alamofire', '~> 3.1.4'
+pod 'Alamofire'
 pod 'MBProgressHUD', '~> 0.9.0'
 
 

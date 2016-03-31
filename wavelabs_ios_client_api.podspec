@@ -36,7 +36,7 @@ s.source = { :git => "https://github.com/nbostech/wavelabs_ios_client_api.git", 
 
 # 7
 s.framework = "UIKit"
-s.dependency 'Alamofire', '~> 3.1.4'
+s.dependency 'Alamofire'
 s.dependency 'MBProgressHUD', '~> 0.9.0'
 
 # 8

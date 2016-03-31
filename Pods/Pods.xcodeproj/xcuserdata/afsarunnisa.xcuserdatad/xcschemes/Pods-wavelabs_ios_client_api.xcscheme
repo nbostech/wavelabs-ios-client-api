@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B1F4EDE61E316AF20105CF25'
+               BlueprintIdentifier = '1D89CAC6804D0212CED3BCD0'
                BlueprintName = 'Pods-wavelabs_ios_client_api'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_wavelabs_ios_client_api.framework'>
