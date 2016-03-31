@@ -44,10 +44,10 @@ public class Utilities {
         var parameters : [String : AnyObject] = [:]
         
         for var index = 0; index < paramsDict.allKeys.count; ++index {
-            var keysList : NSArray = paramsDict.allKeys as NSArray
+            let keysList : NSArray = paramsDict.allKeys as NSArray
             
-            var key : String = keysList.objectAtIndex(index) as! String
-            var value : String = paramsDict.objectForKey(key) as! String
+            let key : String = keysList.objectAtIndex(index) as! String
+            let value : String = paramsDict.objectForKey(key) as! String
             
             parameters[key] = value as AnyObject
         }

@@ -71,14 +71,14 @@ class Communicator {
     
     class func memberDetailsEntity(memberDetails: NSDictionary) -> MemberApiModel{
         
-        var socialActAry : NSMutableArray = NSMutableArray()
-        var socialActs : NSArray = memberDetails.objectForKey("socialAccounts") as! NSArray
+        let socialActAry : NSMutableArray = NSMutableArray()
+        let socialActs : NSArray = memberDetails.objectForKey("socialAccounts") as! NSArray
         
         for var i = 0; i < socialActs.count; i++ {
             
             let socialActsEntity = SocialApiModel()
             
-            var dict : NSDictionary = socialActs.objectAtIndex(i) as! NSDictionary
+            let dict : NSDictionary = socialActs.objectAtIndex(i) as! NSDictionary
             
             socialActsEntity.email = Utilities.isValueNull(dict.objectForKey("email")!) as! String
             socialActsEntity.id = Utilities.isValueNull(dict.objectForKey("id")!) as! Int
@@ -117,14 +117,14 @@ class Communicator {
         
         
         
-        var mediaDetailsList : NSMutableArray = NSMutableArray()
-        var mediaDetails : NSArray = JSONdata.objectForKey("mediaFileDetailsList") as! NSArray
+        let mediaDetailsList : NSMutableArray = NSMutableArray()
+        let mediaDetails : NSArray = JSONdata.objectForKey("mediaFileDetailsList") as! NSArray
         
         for var i = 0; i < mediaDetails.count; i++ {
             
             let mediaFileDetails = MediaFileDetailsApiModel()
             
-            var dict : NSDictionary = mediaDetails.objectAtIndex(i) as! NSDictionary
+            let dict : NSDictionary = mediaDetails.objectAtIndex(i) as! NSDictionary
             
             mediaFileDetails.mediapath = Utilities.isValueNull(dict.objectForKey("mediapath")!) as! String
             mediaFileDetails.mediatype = Utilities.isValueNull(dict.objectForKey("mediatype")!) as! String
@@ -165,12 +165,12 @@ class Communicator {
     
     class func respValidationMessageCodesFromJson(JSONdata : AnyObject) -> NSArray {
         
-        var validationArray : NSMutableArray = NSMutableArray()
+        let validationArray : NSMutableArray = NSMutableArray()
         var errorsDict : NSDictionary!
         
         
         if(JSONdata.objectForKey("errors") != nil){
-            var errorsArray : NSArray = JSONdata.objectForKey("errors") as! NSArray
+            let errorsArray : NSArray = JSONdata.objectForKey("errors") as! NSArray
             
             for var i = 0; i < errorsArray.count; i++ {
                 errorsDict = errorsArray.objectAtIndex(i) as! NSDictionary

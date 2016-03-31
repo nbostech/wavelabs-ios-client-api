@@ -226,6 +226,8 @@
 		B0BB2E8F1C85B90E0082A260 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Wavelabs;
 				TargetAttributes = {
