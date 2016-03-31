@@ -56,29 +56,7 @@ public class Utilities {
     }
 
     
-//    public class func getBaseUrl() -> String{
-//        var urlDict : NSDictionary = NSBundle.mainBundle().infoDictionary?["WavelabsAPISettings"] as! NSDictionary
-//        var serviceUrl : String = urlDict.objectForKey("WAVELABS_BASE_URL") as! String
-//        
-//        return serviceUrl
-//    }
-//    
-//    public class func getClientID() -> String{
-//        var urlDict : NSDictionary = NSBundle.mainBundle().infoDictionary?["WavelabsAPISettings"] as! NSDictionary
-//        var clientID : String = urlDict.objectForKey("WAVELABS_CLIENT_ID") as! String
-//        return clientID
-//    }
-//    
-//    
-//    public class func getClientSecret() -> String{
-//        var urlDict : NSDictionary = NSBundle.mainBundle().infoDictionary?["WavelabsAPISettings"] as! NSDictionary
-//        var clientSecret : String = urlDict.objectForKey("WAVELABS_CLIENT_SECRET") as! String
-//        return clientSecret
-//    }
-    
-    
     public func getClientAccessToken() -> String{
-//        let token: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("access_token")!
         return WAVELABS_CLIENT_ACCESS_TOKEN
     }
 
