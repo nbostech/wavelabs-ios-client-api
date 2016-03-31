@@ -9,8 +9,6 @@
 import Foundation
 @objc public class MemberApiModel :NSObject{
     // MARK: Properties
-    
-    
     public var desc: String = ""
     public var id: Int = 0
     public var email: String = ""

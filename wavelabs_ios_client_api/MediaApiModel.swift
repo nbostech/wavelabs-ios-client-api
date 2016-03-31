@@ -13,6 +13,5 @@ import Foundation
     
     public var mediaExtension : String = ""
     public var supportedsizes : String = ""
-    
     public var mediaFileDetailsList : NSArray!
 }

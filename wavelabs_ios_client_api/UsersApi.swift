@@ -29,6 +29,8 @@ public class UsersApi {
     
     public var delegate: getUsersApiResponseDelegate?
     
+    
+    
     var utilities : Utilities = Utilities()
 
     
