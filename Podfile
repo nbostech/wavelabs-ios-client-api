@@ -5,7 +5,7 @@
 
 target 'wavelabs_ios_client_api' do
 
-pod 'Alamofire', '~> 1.3.1'
+pod 'Alamofire', '~> 3.0'
 pod 'MBProgressHUD', '~> 0.9.0'
 
 
