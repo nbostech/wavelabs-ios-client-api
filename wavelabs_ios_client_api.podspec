@@ -8,7 +8,7 @@ s.summary = "wavelabs_ios_client_api desc"
 s.requires_arc = true
 
 # 2
-s.version = "0.2.4"
+s.version = "0.2.6"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }

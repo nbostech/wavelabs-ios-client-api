@@ -24,9 +24,7 @@ import Alamofire
 
 
 public class SocialApi {
-    
-    
-    
+        
     public init() {
         
     }
