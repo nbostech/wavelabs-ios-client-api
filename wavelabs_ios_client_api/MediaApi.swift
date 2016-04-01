@@ -57,7 +57,7 @@ public class MediaApi {
                 
             case .Failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
     }
     

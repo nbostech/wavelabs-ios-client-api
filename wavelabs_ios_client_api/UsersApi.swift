@@ -55,7 +55,7 @@ public class UsersApi {
                 }
             case .Failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
         
     }
@@ -91,7 +91,7 @@ public class UsersApi {
                 }
             case .Failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
         
     }
@@ -128,7 +128,7 @@ public class UsersApi {
                 }
             case .Failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
         
     }

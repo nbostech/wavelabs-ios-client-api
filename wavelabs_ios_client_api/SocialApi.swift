@@ -68,7 +68,7 @@ public class SocialApi {
                 
             case .Failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
     }
     
@@ -100,7 +100,7 @@ public class SocialApi {
                 
             case .Failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
     }
     
@@ -128,7 +128,7 @@ public class SocialApi {
                 
             case .Failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
     }
     
@@ -160,7 +160,7 @@ public class SocialApi {
                 
             case .Failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
         
     }
@@ -191,7 +191,7 @@ public class SocialApi {
                 
             case .Failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
         
     }
