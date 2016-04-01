@@ -31,7 +31,6 @@ public class MediaApi {
         
     }
     
-    
     public func getMedia(){
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -78,12 +77,9 @@ public class MediaApi {
         if let dirPath = paths.first {
             let imagesDirectory = (dirPath as NSString).stringByAppendingPathComponent("Images")
             
-            
             fileName  =  NSString(format:"%@.png", userID) as String
             storePath = (imagesDirectory as NSString).stringByAppendingPathComponent(fileName)
             imageData = UIImageJPEGRepresentation(UIImage(contentsOfFile: storePath)!, 1)!
-            
-            
         }
         
         
@@ -125,7 +121,7 @@ public class MediaApi {
                         
                     case .Failure(let error):
                         print("Request failed with error: \(error)")
-                        }
+                    }
                         
                         debugPrint(response)
                     }

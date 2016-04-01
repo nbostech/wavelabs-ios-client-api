@@ -162,7 +162,6 @@ public class SocialApi {
                 print("Request failed with error: \(error)")
             }
         }
-        
     }
     
     public func socialWebConnect(socialType : String){

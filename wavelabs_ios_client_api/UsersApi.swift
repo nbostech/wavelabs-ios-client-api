@@ -93,11 +93,9 @@ public class UsersApi {
                 print("Request failed with error: \(error)")
             }
         }
-        
     }
     
     public func updateProfile(profile : NSDictionary) {
-        
         
         let utilities : Utilities = Utilities()
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -108,7 +106,6 @@ public class UsersApi {
         }else{
             userID = defaults.stringForKey("user_id")!
         }
-        
         
         let requestUrl = "\(WAVELABS_HOST_URL)\(identityApiUrl)\(userID)"
         let token: AnyObject = utilities.getUserAccessToken()
