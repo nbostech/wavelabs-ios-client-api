@@ -18,8 +18,6 @@ import Alamofire
     optional func handleMessages(messageCodeEntity: MessagesApiModel)
     optional func handleValidationErrors(messageCodeEntityArray: NSArray) // multiple MessagesRespApiModel - 404(Validation errors)
     optional func handleRefreshToken(JSON : AnyObject) // multiple MessagesRespApiModel - 404(Validation errors)
-    
-    
 }
 
 public class UsersApi {
@@ -139,7 +137,4 @@ public class UsersApi {
         let messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(JSON)
         self.delegate!.handleMessages!(messageCodeEntity)
     }
-    
-    
-    
 }

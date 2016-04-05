@@ -54,7 +54,6 @@ public class AuthApi {
         
         let requestUrl = "\(WAVELABS_HOST_URL)\(refreshTokenUrl)"
         
-        
         Alamofire.request(.POST, requestUrl, parameters: utilities.getParams(clientTokenDict), encoding:.JSON).responseJSON
             { response in switch response.result {
             case .Success(let JSON):
@@ -85,8 +84,6 @@ public class AuthApi {
         
         let requestUrl = "\(WAVELABS_HOST_URL)\(identityApiUrl)\(loginUrl)"
         let token: AnyObject = utilities.getClientAccessToken()
-        
-        
         
         Alamofire.request(.POST, requestUrl, parameters: utilities.getParams(login), encoding:.JSON, headers : ["Authorization" : "Bearer \(token)"]).responseJSON
             { response in switch response.result {
@@ -140,7 +137,6 @@ public class AuthApi {
         let requestUrl = "\(WAVELABS_HOST_URL)\(identityApiUrl)\(changePswUrl)"
         let token: AnyObject = utilities.getUserAccessToken()
         
-        
         Alamofire.request(.POST, requestUrl, parameters: utilities.getParams(changePsw), encoding:.JSON, headers : ["Authorization" : "Bearer \(token)"]).responseJSON
             { response in switch response.result {
             case .Success(let JSON):
@@ -159,10 +155,8 @@ public class AuthApi {
                 
             case .Failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
-        
-        
     }
     
     public func forgotPassword(forgotPsw : NSDictionary) {

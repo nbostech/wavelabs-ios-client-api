@@ -80,9 +80,6 @@ public class SocialApi {
         let requestUrl = "\(WAVELABS_HOST_URL)\(socialIdentityApiUrl)\(socialwebLinkUrl)"
         let token: AnyObject = utilities.getClientAccessToken()
         
-        
-        
-        
         Alamofire.request(.GET, requestUrl, parameters: nil, encoding:.JSON, headers : ["Authorization" : "Bearer \(token)"]).responseJSON
             { response in switch response.result {
             case .Success(let JSON):

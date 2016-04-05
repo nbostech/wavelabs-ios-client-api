@@ -39,7 +39,6 @@ public class MediaApi {
         let requestUrl =  "\(WAVELABS_HOST_URL)\(apiUrl)\(mediaUrl)?id=\(userID!)&mediafor=profile"
         let token: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("access_token")!
         
-        
         Alamofire.request(.GET, requestUrl, parameters: nil, encoding:.JSON, headers : ["Authorization" : "Bearer \(token)"]).responseJSON
             { response in switch response.result {
             case .Success(let JSON):
@@ -143,5 +142,3 @@ public class MediaApi {
         self.delegate!.handleMessages!(messageCodeEntity)
     }    
 }
-
-
