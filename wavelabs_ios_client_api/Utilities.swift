@@ -43,7 +43,7 @@ public class Utilities {
     public func getParams(paramsDict : NSDictionary) -> [String : AnyObject]{
         var parameters : [String : AnyObject] = [:]
         
-        for var index = 0; index < paramsDict.allKeys.count; ++index {
+        for index in 0 ..< paramsDict.allKeys.count {
             let keysList : NSArray = paramsDict.allKeys as NSArray
             
             let key : String = keysList.objectAtIndex(index) as! String

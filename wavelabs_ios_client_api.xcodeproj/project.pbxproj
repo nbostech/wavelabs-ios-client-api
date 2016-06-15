@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41EF4EF9231C1ADCF3656D42 /* Pods_wavelabs_ios_client_api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D22A120919C7A9549378B2 /* Pods_wavelabs_ios_client_api.framework */; };
+		304DAB74475F58ECA1E13889 /* Pods_wavelabs_ios_client_apiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAB0E4B35CA21A85186D1FA /* Pods_wavelabs_ios_client_apiTests.framework */; };
 		B0B48A691C85BA940015BFB1 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B48A651C85BA940015BFB1 /* AuthAPI.swift */; };
 		B0B48A6A1C85BA940015BFB1 /* UsersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B48A661C85BA940015BFB1 /* UsersApi.swift */; };
 		B0B48A6B1C85BA940015BFB1 /* MediaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B48A671C85BA940015BFB1 /* MediaApi.swift */; };
@@ -25,6 +25,7 @@
 		B0BB2E9E1C85B90E0082A260 /* wavelabs_ios_client_api.h in Headers */ = {isa = PBXBuildFile; fileRef = B0BB2E9D1C85B90E0082A260 /* wavelabs_ios_client_api.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0BB2EA41C85B90E0082A260 /* wavelabs_ios_client_api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BB2E981C85B90E0082A260 /* wavelabs_ios_client_api.framework */; };
 		B0BB2EAB1C85B90E0082A260 /* wavelabs_ios_client_apiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BB2EAA1C85B90E0082A260 /* wavelabs_ios_client_apiTests.swift */; };
+		D5D0FEE95CAA2F0C7E91C77C /* Pods_wavelabs_ios_client_api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AB68B60875F4CEF1EEE804 /* Pods_wavelabs_ios_client_api.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10AB68B60875F4CEF1EEE804 /* Pods_wavelabs_ios_client_api.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wavelabs_ios_client_api.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		187118C357EAA9A81109EB7E /* Pods-wavelabs_ios_client_api.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wavelabs_ios_client_api.release.xcconfig"; path = "Pods/Target Support Files/Pods-wavelabs_ios_client_api/Pods-wavelabs_ios_client_api.release.xcconfig"; sourceTree = "<group>"; };
+		3FAB0E4B35CA21A85186D1FA /* Pods_wavelabs_ios_client_apiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wavelabs_ios_client_apiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AD41B99B1F420C51B18BF30 /* Pods-wavelabs_ios_client_api.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wavelabs_ios_client_api.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wavelabs_ios_client_api/Pods-wavelabs_ios_client_api.debug.xcconfig"; sourceTree = "<group>"; };
 		B0B48A651C85BA940015BFB1 /* AuthAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		B0B48A661C85BA940015BFB1 /* UsersApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersApi.swift; sourceTree = "<group>"; };
 		B0B48A671C85BA940015BFB1 /* MediaApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaApi.swift; sourceTree = "<group>"; };
@@ -58,9 +63,8 @@
 		B0BB2EA31C85B90E0082A260 /* wavelabs_ios_client_apiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wavelabs_ios_client_apiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0BB2EA91C85B90E0082A260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0BB2EAA1C85B90E0082A260 /* wavelabs_ios_client_apiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wavelabs_ios_client_apiTests.swift; sourceTree = "<group>"; };
-		C83B00E257BD810512FD31BF /* Pods-wavelabs_ios_client_api.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wavelabs_ios_client_api.release.xcconfig"; path = "Pods/Target Support Files/Pods-wavelabs_ios_client_api/Pods-wavelabs_ios_client_api.release.xcconfig"; sourceTree = "<group>"; };
-		D5D22A120919C7A9549378B2 /* Pods_wavelabs_ios_client_api.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wavelabs_ios_client_api.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9BB980AC9F6892C51C283A4 /* Pods-wavelabs_ios_client_api.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wavelabs_ios_client_api.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wavelabs_ios_client_api/Pods-wavelabs_ios_client_api.debug.xcconfig"; sourceTree = "<group>"; };
+		D9559F76F6C53103B32A2A35 /* Pods-wavelabs_ios_client_apiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wavelabs_ios_client_apiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wavelabs_ios_client_apiTests/Pods-wavelabs_ios_client_apiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F8175452B00E9FC761B1D1CF /* Pods-wavelabs_ios_client_apiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wavelabs_ios_client_apiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-wavelabs_ios_client_apiTests/Pods-wavelabs_ios_client_apiTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41EF4EF9231C1ADCF3656D42 /* Pods_wavelabs_ios_client_api.framework in Frameworks */,
+				D5D0FEE95CAA2F0C7E91C77C /* Pods_wavelabs_ios_client_api.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,25 +81,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0BB2EA41C85B90E0082A260 /* wavelabs_ios_client_api.framework in Frameworks */,
+				304DAB74475F58ECA1E13889 /* Pods_wavelabs_ios_client_apiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0BB976FD29EE0534B85AEC3F /* Pods */ = {
+		86394E95491AF662FEC4CE81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D9BB980AC9F6892C51C283A4 /* Pods-wavelabs_ios_client_api.debug.xcconfig */,
-				C83B00E257BD810512FD31BF /* Pods-wavelabs_ios_client_api.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		357F9FBE8FC64C377803F15D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D5D22A120919C7A9549378B2 /* Pods_wavelabs_ios_client_api.framework */,
+				10AB68B60875F4CEF1EEE804 /* Pods_wavelabs_ios_client_api.framework */,
+				3FAB0E4B35CA21A85186D1FA /* Pods_wavelabs_ios_client_apiTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -106,8 +103,8 @@
 				B0BB2E9A1C85B90E0082A260 /* wavelabs_ios_client_api */,
 				B0BB2EA71C85B90E0082A260 /* wavelabs_ios_client_apiTests */,
 				B0BB2E991C85B90E0082A260 /* Products */,
-				0BB976FD29EE0534B85AEC3F /* Pods */,
-				357F9FBE8FC64C377803F15D /* Frameworks */,
+				DB5BD646613B15D146072012 /* Pods */,
+				86394E95491AF662FEC4CE81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +165,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DB5BD646613B15D146072012 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9AD41B99B1F420C51B18BF30 /* Pods-wavelabs_ios_client_api.debug.xcconfig */,
+				187118C357EAA9A81109EB7E /* Pods-wavelabs_ios_client_api.release.xcconfig */,
+				D9559F76F6C53103B32A2A35 /* Pods-wavelabs_ios_client_apiTests.debug.xcconfig */,
+				F8175452B00E9FC761B1D1CF /* Pods-wavelabs_ios_client_apiTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -186,12 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0BB2EAE1C85B90E0082A260 /* Build configuration list for PBXNativeTarget "wavelabs_ios_client_api" */;
 			buildPhases = (
-				B46FDD6B4B36C1C783D32014 /* Check Pods Manifest.lock */,
+				8E8DDFCD80667FC64F9BB2C8 /* [CP] Check Pods Manifest.lock */,
 				B0BB2E931C85B90E0082A260 /* Sources */,
 				B0BB2E941C85B90E0082A260 /* Frameworks */,
 				B0BB2E951C85B90E0082A260 /* Headers */,
 				B0BB2E961C85B90E0082A260 /* Resources */,
-				ADDFF947FC6E81D514FA4D08 /* Copy Pods Resources */,
+				1C4A38B3EA04F2BEFC260943 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,9 +214,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0BB2EB11C85B90E0082A260 /* Build configuration list for PBXNativeTarget "wavelabs_ios_client_apiTests" */;
 			buildPhases = (
+				645815753EC77315BAE72FE1 /* [CP] Check Pods Manifest.lock */,
 				B0BB2E9F1C85B90E0082A260 /* Sources */,
 				B0BB2EA01C85B90E0082A260 /* Frameworks */,
 				B0BB2EA11C85B90E0082A260 /* Resources */,
+				EAF505BCD55FC0A6C122A063 /* [CP] Embed Pods Frameworks */,
+				587AA6E667CDDAC9BF2E1F61 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,7 +239,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Wavelabs;
 				TargetAttributes = {
 					B0BB2E971C85B90E0082A260 = {
@@ -275,14 +286,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		ADDFF947FC6E81D514FA4D08 /* Copy Pods Resources */ = {
+		1C4A38B3EA04F2BEFC260943 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,19 +301,64 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wavelabs_ios_client_api/Pods-wavelabs_ios_client_api-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B46FDD6B4B36C1C783D32014 /* Check Pods Manifest.lock */ = {
+		587AA6E667CDDAC9BF2E1F61 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wavelabs_ios_client_apiTests/Pods-wavelabs_ios_client_apiTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		645815753EC77315BAE72FE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8E8DDFCD80667FC64F9BB2C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EAF505BCD55FC0A6C122A063 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wavelabs_ios_client_apiTests/Pods-wavelabs_ios_client_apiTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -370,6 +426,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -439,7 +496,7 @@
 		};
 		B0BB2EAF1C85B90E0082A260 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9BB980AC9F6892C51C283A4 /* Pods-wavelabs_ios_client_api.debug.xcconfig */;
+			baseConfigurationReference = 9AD41B99B1F420C51B18BF30 /* Pods-wavelabs_ios_client_api.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -450,6 +507,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wavelabs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -458,7 +516,7 @@
 		};
 		B0BB2EB01C85B90E0082A260 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C83B00E257BD810512FD31BF /* Pods-wavelabs_ios_client_api.release.xcconfig */;
+			baseConfigurationReference = 187118C357EAA9A81109EB7E /* Pods-wavelabs_ios_client_api.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -469,6 +527,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wavelabs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -476,6 +535,7 @@
 		};
 		B0BB2EB21C85B90E0082A260 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9559F76F6C53103B32A2A35 /* Pods-wavelabs_ios_client_apiTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -487,12 +547,14 @@
 				);
 				INFOPLIST_FILE = wavelabs_ios_client_apiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wavelabs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		B0BB2EB31C85B90E0082A260 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8175452B00E9FC761B1D1CF /* Pods-wavelabs_ios_client_apiTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -500,6 +562,7 @@
 				);
 				INFOPLIST_FILE = wavelabs_ios_client_apiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wavelabs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

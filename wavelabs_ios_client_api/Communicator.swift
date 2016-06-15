@@ -74,7 +74,7 @@ class Communicator {
         let socialActAry : NSMutableArray = NSMutableArray()
         let socialActs : NSArray = memberDetails.objectForKey("socialAccounts") as! NSArray
         
-        for var i = 0; i < socialActs.count; i++ {
+        for i in 0 ..< socialActs.count {
             
             let socialActsEntity = SocialApiModel()
             
@@ -120,7 +120,7 @@ class Communicator {
         let mediaDetailsList : NSMutableArray = NSMutableArray()
         let mediaDetails : NSArray = JSONdata.objectForKey("mediaFileDetailsList") as! NSArray
         
-        for var i = 0; i < mediaDetails.count; i++ {
+        for i in 0 ..< mediaDetails.count {
             
             let mediaFileDetails = MediaFileDetailsApiModel()
             
@@ -172,7 +172,7 @@ class Communicator {
         if(JSONdata.objectForKey("errors") != nil){
             let errorsArray : NSArray = JSONdata.objectForKey("errors") as! NSArray
             
-            for var i = 0; i < errorsArray.count; i++ {
+            for i in 0 ..< errorsArray.count {
                 errorsDict = errorsArray.objectAtIndex(i) as! NSDictionary
                 let messagesEntity = ValidationMessagesApiModel()
                 
