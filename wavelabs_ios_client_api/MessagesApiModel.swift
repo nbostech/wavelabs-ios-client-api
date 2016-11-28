@@ -8,8 +8,8 @@
 
 import Foundation
 
-@objc public class MessagesApiModel:NSObject {
+@objc open class MessagesApiModel:NSObject {
     // MARK: Properties
-    public var message : String = ""
-    public var messageCode : String = ""
+    open var message : String = ""
+    open var messageCode : String = ""
 }

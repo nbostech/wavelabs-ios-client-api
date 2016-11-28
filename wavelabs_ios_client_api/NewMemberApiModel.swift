@@ -8,8 +8,8 @@
 
 import Foundation
 
-@objc public class NewMemberApiModel:NSObject {
+@objc open class NewMemberApiModel:NSObject {
     // MARK: Properties
-    public var memberApiModel : MemberApiModel!
-    public var tokenApiModel : TokenApiModel!
+    open var memberApiModel : MemberApiModel!
+    open var tokenApiModel : TokenApiModel!
 }

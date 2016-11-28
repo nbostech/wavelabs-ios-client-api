@@ -11,23 +11,23 @@ import Alamofire
 
 @objc public protocol getAuthApiResponseDelegate {
     
-    optional func handleLogin(userEntity:NewMemberApiModel)
-    optional func handleLogOut(messageCodeEntity: MessagesApiModel)
+    @objc optional func handleLogin(_ userEntity:NewMemberApiModel)
+    @objc optional func handleLogOut(_ messageCodeEntity: MessagesApiModel)
     
-    optional func handleMessages(messageCodeEntity: MessagesApiModel)
-    optional func handleValidationErrors(messageCodeEntityArray: NSArray) // multiple MessagesRespApiModel - 404(Validation errors)
-    optional func handleRefreshToken(JSON : AnyObject) // multiple MessagesRespApiModel - 404(Validation errors)
+    @objc optional func handleMessages(_ messageCodeEntity: MessagesApiModel)
+    @objc optional func handleValidationErrors(_ messageCodeEntityArray: NSArray) // multiple MessagesRespApiModel - 404(Validation errors)
+    @objc optional func handleRefreshToken(_ JSON : AnyObject) // multiple MessagesRespApiModel - 404(Validation errors)
     
-    optional func handleRefreshTokenResponse(tokenEntity : TokenApiModel)
+    @objc optional func handleRefreshTokenResponse(_ tokenEntity : TokenApiModel)
     
-    optional func handleClientTokenResponse(tokenEntity : TokenApiModel)
+    @objc optional func handleClientTokenResponse(_ tokenEntity : TokenApiModel)
     
     
-    optional func moveToLogin()
+    @objc optional func moveToLogin()
     
 }
 
-public class AuthApi {
+open class AuthApi {
     
     
     var identityApiUrl : String = "api/identity/v0/auth/"
@@ -40,7 +40,7 @@ public class AuthApi {
     
     var refreshTokenUrl : String = "oauth/token"
     
-    public var delegate: getAuthApiResponseDelegate?
+    open var delegate: getAuthApiResponseDelegate?
     
     
     var utilities : Utilities = Utilities()
@@ -50,13 +50,16 @@ public class AuthApi {
         
     }
     
-    public func getClientToken(clientTokenDict : NSDictionary){
+    open func getClientToken(_ clientTokenDict : NSDictionary){
         
         let requestUrl = "\(WAVELABS_HOST_URL)\(refreshTokenUrl)"
         
-        Alamofire.request(.POST, requestUrl, parameters: utilities.getParams(clientTokenDict), encoding:.JSON).responseJSON
-            { response in switch response.result {
-            case .Success(let JSON):
+        Alamofire.request(requestUrl, method: .post, parameters: utilities.getParams(clientTokenDict), headers: nil).responseJSON {
+            response in
+        
+        
+            switch response.result {
+            case .success(let JSON):
                 print("Success with JSON: \(JSON)")
                 
                 let jsonResp = JSON as! NSDictionary
@@ -73,132 +76,147 @@ public class AuthApi {
                     self.messagesErrorsCodes(jsonResp)
                 }
                 
-            case .Failure(let error):
+            case .failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
         
     }
     
-    public func loginUser(login : NSDictionary) {
+    open func loginUser(_ login : NSDictionary) {
         
         let requestUrl = "\(WAVELABS_HOST_URL)\(identityApiUrl)\(loginUrl)"
-        let token: AnyObject = utilities.getClientAccessToken()
+        let token: AnyObject = utilities.getClientAccessToken() as AnyObject
         
-        Alamofire.request(.POST, requestUrl, parameters: utilities.getParams(login), encoding:.JSON, headers : ["Authorization" : "Bearer \(token)"]).responseJSON
-            { response in switch response.result {
-            case .Success(let JSON):
+        
+        Alamofire.request(requestUrl, method: .post, parameters: utilities.getParams(login), headers: ["Authorization" : "Bearer \(token)"]).responseJSON {
+            response in
+        
+            switch response.result {
+            case .success(let JSON):
                 print("Success with JSON: \(JSON)")
                 
                 let jsonResp = JSON
                 if(response.response?.statusCode == 200){
-                    let userEntity : NewMemberApiModel = Communicator.userEntityFromJSON(jsonResp)
+                    let userEntity : NewMemberApiModel = Communicator.userEntityFromJSON(jsonResp as AnyObject)
                     self.delegate!.handleLogin!(userEntity)
                 }else if(response.response?.statusCode == 400){
-                    self.validationErrorsCodes(jsonResp)
+                    self.validationErrorsCodes(jsonResp as AnyObject)
                 }else{
-                    self.messagesErrorsCodes(jsonResp)
+                    self.messagesErrorsCodes(jsonResp as AnyObject)
                 }
-            case .Failure(let error):
+            case .failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
+        
     }
     
-    public func logOut() {
+    open func logOut() {
         
         let requestUrl = "\(WAVELABS_HOST_URL)\(identityApiUrl)\(logOutUrl)"
-        let token: AnyObject = utilities.getUserAccessToken()
+        let token: AnyObject = utilities.getUserAccessToken() as AnyObject
         
-        Alamofire.request(.GET, requestUrl, parameters: nil, encoding:.JSON, headers : ["Authorization" : "Bearer \(token)"]).responseJSON
-            { response in switch response.result {
-            case .Success(let JSON):
+        Alamofire.request(requestUrl, method: .get, parameters: nil, headers: ["Authorization" : "Bearer \(token)"]).responseJSON {
+            response in
+        
+            switch response.result {
+            case .success(let JSON):
                 print("Success with JSON: \(JSON)")
                 
                 let jsonResp = JSON
                 
                 if(response.response?.statusCode == 200){
-                    let messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(jsonResp)
+                    let messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(jsonResp as AnyObject)
                     self.delegate!.handleLogOut!(messageCodeEntity)
                 }else if(response.response?.statusCode == 400){
-                    self.validationErrorsCodes(jsonResp)
+                    self.validationErrorsCodes(jsonResp as AnyObject)
                 }else{
-                    self.messagesErrorsCodes(jsonResp)
+                    self.messagesErrorsCodes(jsonResp as AnyObject)
                 }
                 
-            case .Failure(let error):
+            case .failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
+        
         }
+        
+        
     }
     
-    public func changePassword(changePsw : NSDictionary) {
+    open func changePassword(_ changePsw : NSDictionary) {
         
         let requestUrl = "\(WAVELABS_HOST_URL)\(identityApiUrl)\(changePswUrl)"
-        let token: AnyObject = utilities.getUserAccessToken()
+        let token: AnyObject = utilities.getUserAccessToken() as AnyObject
         
-        Alamofire.request(.POST, requestUrl, parameters: utilities.getParams(changePsw), encoding:.JSON, headers : ["Authorization" : "Bearer \(token)"]).responseJSON
-            { response in switch response.result {
-            case .Success(let JSON):
+        
+        Alamofire.request(requestUrl, method: .post, parameters: utilities.getParams(changePsw), encoding: JSONEncoding.default, headers: ["Authorization" : "Bearer \(token)"]).responseJSON {
+            response in
+        
+            switch response.result {
+            case .success(let JSON):
                 print("Success with JSON: \(JSON)")
                 
                 let jsonResp = JSON
                 
                 if(response.response?.statusCode == 200){
-                    let messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(jsonResp)
+                    let messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(jsonResp as AnyObject)
                     self.delegate!.handleMessages!(messageCodeEntity)
                 }else if(response.response?.statusCode == 400){
-                    self.validationErrorsCodes(jsonResp)
+                    self.validationErrorsCodes(jsonResp as AnyObject)
                 }else{
-                    self.messagesErrorsCodes(jsonResp)
+                    self.messagesErrorsCodes(jsonResp as AnyObject)
                 }
                 
-            case .Failure(let error):
+            case .failure(let error):
+                print("Request failed with error: \(error)")
+            }
+        }
+        
+    }
+    
+    open func forgotPassword(_ forgotPsw : NSDictionary) {
+        
+        let requestUrl = "\(WAVELABS_HOST_URL)\(identityApiUrl)\(forgotPswUrl)"
+        let token: AnyObject = utilities.getClientAccessToken() as AnyObject
+        
+        Alamofire.request(requestUrl, method: .post, parameters: utilities.getParams(forgotPsw), encoding: JSONEncoding.default, headers: ["Authorization" : "Bearer \(token)"]).responseJSON {
+            response in
+        
+            switch response.result {
+            case .success(let JSON):
+                print("Success with JSON: \(JSON)")
+                
+                let jsonResp = JSON
+                if(response.response?.statusCode == 200){
+                    let messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(jsonResp as AnyObject)
+                    self.delegate!.handleMessages!(messageCodeEntity)
+                }else if(response.response?.statusCode == 400){
+                    self.validationErrorsCodes(jsonResp as AnyObject)
+                }else{
+                    self.messagesErrorsCodes(jsonResp as AnyObject)
+                }
+                
+            case .failure(let error):
                 print("Request failed with error: \(error)")
             }
         }
     }
     
-    public func forgotPassword(forgotPsw : NSDictionary) {
+    open func refreshToken() {
         
-        let requestUrl = "\(WAVELABS_HOST_URL)\(identityApiUrl)\(forgotPswUrl)"
-        let token: AnyObject = utilities.getClientAccessToken()
-        
-        Alamofire.request(.POST, requestUrl, parameters: utilities.getParams(forgotPsw), encoding:.JSON, headers : ["Authorization" : "Bearer \(token)"]).responseJSON
-            { response in switch response.result {
-            case .Success(let JSON):
-                print("Success with JSON: \(JSON)")
-                
-                let jsonResp = JSON
-                if(response.response?.statusCode == 200){
-                    let messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(jsonResp)
-                    self.delegate!.handleMessages!(messageCodeEntity)
-                }else if(response.response?.statusCode == 400){
-                    self.validationErrorsCodes(jsonResp)
-                }else{
-                    self.messagesErrorsCodes(jsonResp)
-                }
-                
-            case .Failure(let error):
-                print("Request failed with error: \(error)")
-                }
-        }
-    }
-    
-    public func refreshToken() {
-        
-        let refreshToken: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("refresh_token")!
+        let refreshToken: AnyObject = UserDefaults.standard.object(forKey: "refresh_token")! as AnyObject
         
         let requestUrl = "\(WAVELABS_HOST_URL)\(refreshTokenUrl)?grant_type=refresh_token&refresh_token=\(refreshToken)&client_id=\(WAVELABS_CLIENT_ID)&scope=read"
         
-        let token: AnyObject = utilities.getUserAccessToken()
+        let token: AnyObject = utilities.getUserAccessToken() as AnyObject
+        
+        Alamofire.request(requestUrl, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization" : "Bearer \(token)"]).responseJSON {
+            response in
         
         
-        
-        
-        Alamofire.request(.POST, requestUrl, parameters: nil, encoding:.JSON, headers : ["Authorization" : "Bearer \(token)"]).responseJSON
-            { response in switch response.result {
-            case .Success(let JSON):
+            switch response.result {
+            case .success(let JSON):
                 print("Success with JSON: \(JSON)")
                 
                 let jsonResp = JSON as! NSDictionary
@@ -216,19 +234,21 @@ public class AuthApi {
                     
                 }
                 
-            case .Failure(let error):
+            case .failure(let error):
                 print("Request failed with error: \(error)")
-                }
+            }
         }
+        
+        
     }
     
     
-    public func validationErrorsCodes(JSON : AnyObject){
+    open func validationErrorsCodes(_ JSON : AnyObject){
         let validationErrors : NSArray = Communicator.respValidationMessageCodesFromJson(JSON)
         self.delegate!.handleValidationErrors!(validationErrors)
     }
     
-    public func messagesErrorsCodes(JSON : AnyObject){
+    open func messagesErrorsCodes(_ JSON : AnyObject){
         let messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(JSON)
         self.delegate!.handleMessages!(messageCodeEntity)
     }

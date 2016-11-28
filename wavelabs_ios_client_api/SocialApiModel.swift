@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 
-public class SocialApiModel :NSObject{
+open class SocialApiModel :NSObject{
     // MARK: Properties
-    public var email: String = ""
-    public var id: Int = 0
-    public var imageUrl: String = ""
-    public var socialType: String = ""
+    open var email: String = ""
+    open var id: Int = 0
+    open var imageUrl: String = ""
+    open var socialType: String = ""
     
 }

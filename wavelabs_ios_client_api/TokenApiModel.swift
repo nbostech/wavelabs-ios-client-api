@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 
-public class TokenApiModel :NSObject{
+open class TokenApiModel :NSObject{
     // MARK: Properties
-    public var access_token: String = ""
-    public var expires_in: Int = 0
-    public var refresh_token: String = ""
-    public var scope: String = ""
-    public var token_type: String = ""
+    open var access_token: String = ""
+    open var expires_in: Int = 0
+    open var refresh_token: String = ""
+    open var scope: String = ""
+    open var token_type: String = ""
     
 }

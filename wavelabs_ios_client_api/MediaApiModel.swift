@@ -8,10 +8,10 @@
 
 import Foundation
 
-@objc public class MediaApiModel:NSObject {
+@objc open class MediaApiModel:NSObject {
     // MARK: Properties
-    public var mediaExtension : String = ""
-    public var supportedsizes : String = ""
+    open var mediaExtension : String = ""
+    open var supportedsizes : String = ""
     
-    public var mediaFileDetailsList : NSArray!
+    open var mediaFileDetailsList : NSArray!
 }

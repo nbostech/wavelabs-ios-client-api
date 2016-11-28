@@ -7,11 +7,11 @@
 //
 
 import Foundation
-@objc public class ValidationMessagesApiModel:NSObject {
+@objc open class ValidationMessagesApiModel:NSObject {
     // MARK: Properties
   
-    public var message : String = ""
-    public var messageCode : String = ""
-    public var objectName : String = ""
-    public var propertyName : String = ""
+    open var message : String = ""
+    open var messageCode : String = ""
+    open var objectName : String = ""
+    open var propertyName : String = ""
 }

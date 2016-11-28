@@ -19,15 +19,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-wavelabs_ios_client_apiTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>432ECC54282C84882B482CCB4CF227FC</key>
+		<key>1A054B428822F682A53FEB32D20B9BD6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B0DA5BD5CDBA424E4D69AEB8F2B65E56</key>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89EC31A7F7ED4BC191E2ECD7FB2CE3C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -11,18 +11,18 @@ class Communicator {
     
     
     
-    class func userEntityFromJSON(JSONdata : AnyObject) -> NewMemberApiModel{
+    class func userEntityFromJSON(_ JSONdata : AnyObject) -> NewMemberApiModel{
         
         let userEntity = NewMemberApiModel()
         var tokenDetails : NSDictionary!
         var memberDetails : NSDictionary!
         
-        if(JSONdata.objectForKey("token") != nil){
-            tokenDetails = JSONdata.objectForKey("token") as! NSDictionary
+        if(JSONdata.object(forKey: "token") != nil){
+            tokenDetails = JSONdata.object(forKey: "token") as! NSDictionary
         }
         
-        if(JSONdata.objectForKey("member") != nil){
-            memberDetails = JSONdata.objectForKey("member") as! NSDictionary
+        if(JSONdata.object(forKey: "member") != nil){
+            memberDetails = JSONdata.object(forKey: "member") as! NSDictionary
         }
         
         if(tokenDetails != nil && memberDetails != nil){
@@ -39,29 +39,29 @@ class Communicator {
     
     
     
-    class func tokenDetailsEntity(tokenDetails: NSDictionary) -> TokenApiModel{
+    class func tokenDetailsEntity(_ tokenDetails: NSDictionary) -> TokenApiModel{
         
         let tokenEntity = TokenApiModel()
         
-        if(tokenDetails.objectForKey("access_token") != nil){
-            tokenEntity.access_token = Utilities.isValueNull(tokenDetails.objectForKey("access_token")!) as! String
+        if(tokenDetails.object(forKey: "access_token") != nil){
+            tokenEntity.access_token = Utilities.isValueNull(tokenDetails.object(forKey: "access_token")! as AnyObject) as! String
         }
         
-        if(tokenDetails.objectForKey("expires_in") != nil){
-            tokenEntity.expires_in = Utilities.isValueNull(tokenDetails.objectForKey("expires_in")!) as! Int
+        if(tokenDetails.object(forKey: "expires_in") != nil){
+            tokenEntity.expires_in = Utilities.isValueNull(tokenDetails.object(forKey: "expires_in")! as AnyObject) as! Int
         }
         
-        if(tokenDetails.objectForKey("refresh_token") != nil){
-            tokenEntity.refresh_token = Utilities.isValueNull(tokenDetails.objectForKey("refresh_token")!) as! String
+        if(tokenDetails.object(forKey: "refresh_token") != nil){
+            tokenEntity.refresh_token = Utilities.isValueNull(tokenDetails.object(forKey: "refresh_token")! as AnyObject) as! String
         }
         
-        if(tokenDetails.objectForKey("scope") != nil){
-            tokenEntity.scope = Utilities.isValueNull(tokenDetails.objectForKey("scope")!) as! String
+        if(tokenDetails.object(forKey: "scope") != nil){
+            tokenEntity.scope = Utilities.isValueNull(tokenDetails.object(forKey: "scope")! as AnyObject) as! String
         }
         
         
-        if(tokenDetails.objectForKey("token_type") != nil){
-            tokenEntity.token_type = Utilities.isValueNull(tokenDetails.objectForKey("token_type")!) as! String
+        if(tokenDetails.object(forKey: "token_type") != nil){
+            tokenEntity.token_type = Utilities.isValueNull(tokenDetails.object(forKey: "token_type")! as AnyObject) as! String
         }
         
         return tokenEntity
@@ -69,33 +69,33 @@ class Communicator {
     
         
     
-    class func memberDetailsEntity(memberDetails: NSDictionary) -> MemberApiModel{
+    class func memberDetailsEntity(_ memberDetails: NSDictionary) -> MemberApiModel{
         
         let socialActAry : NSMutableArray = NSMutableArray()
-        let socialActs : NSArray = memberDetails.objectForKey("socialAccounts") as! NSArray
+        let socialActs : NSArray = memberDetails.object(forKey: "socialAccounts") as! NSArray
         
-        for var i = 0; i < socialActs.count; i++ {
+        for i in 0 ..< socialActs.count {
             
             let socialActsEntity = SocialApiModel()
             
-            let dict : NSDictionary = socialActs.objectAtIndex(i) as! NSDictionary
+            let dict : NSDictionary = socialActs.object(at: i) as! NSDictionary
             
-            socialActsEntity.email = Utilities.isValueNull(dict.objectForKey("email")!) as! String
-            socialActsEntity.id = Utilities.isValueNull(dict.objectForKey("id")!) as! Int
-            socialActsEntity.imageUrl = Utilities.isValueNull(dict.objectForKey("imageUrl")!) as! String
-            socialActsEntity.socialType = Utilities.isValueNull(dict.objectForKey("socialType")!) as! String
+            socialActsEntity.email = Utilities.isValueNull(dict.object(forKey: "email")! as AnyObject) as! String
+            socialActsEntity.id = Utilities.isValueNull(dict.object(forKey: "id")! as AnyObject) as! Int
+            socialActsEntity.imageUrl = Utilities.isValueNull(dict.object(forKey: "imageUrl")! as AnyObject) as! String
+            socialActsEntity.socialType = Utilities.isValueNull(dict.object(forKey: "socialType")! as AnyObject) as! String
             
-            socialActAry.addObject(socialActsEntity)
+            socialActAry.add(socialActsEntity)
         }
         
         let memberEntity = MemberApiModel()
         
-        memberEntity.desc = Utilities.isValueNull(memberDetails.objectForKey("description")!) as! String
-        memberEntity.email = Utilities.isValueNull(memberDetails.objectForKey("email")!) as! String
-        memberEntity.firstName = Utilities.isValueNull(memberDetails.objectForKey("firstName")!) as! String
-        memberEntity.id = Utilities.isValueNull(memberDetails.objectForKey("id")!) as! Int
-        memberEntity.lastName = Utilities.isValueNull(memberDetails.objectForKey("lastName")!) as! String
-        memberEntity.phone = Utilities.isValueNull(memberDetails.objectForKey("phone")!) as! Int
+        memberEntity.desc = Utilities.isValueNull(memberDetails.object(forKey: "description")! as AnyObject) as! String
+        memberEntity.email = Utilities.isValueNull(memberDetails.object(forKey: "email")! as AnyObject) as! String
+        memberEntity.firstName = Utilities.isValueNull(memberDetails.object(forKey: "firstName")! as AnyObject) as! String
+        memberEntity.id = Utilities.isValueNull(memberDetails.object(forKey: "id")! as AnyObject) as! Int
+        memberEntity.lastName = Utilities.isValueNull(memberDetails.object(forKey: "lastName")! as AnyObject) as! String
+        memberEntity.phone = Utilities.isValueNull(memberDetails.object(forKey: "phone")! as AnyObject) as! Int
         memberEntity.socialAccounts = socialActAry as NSArray
         
         return memberEntity
@@ -103,33 +103,32 @@ class Communicator {
     
     
     
-    class func webLinkLoginFromJSON(JSONdata : AnyObject) -> NSDictionary{
+    class func webLinkLoginFromJSON(_ JSONdata : AnyObject) -> NSDictionary{
         return JSONdata as! NSDictionary
     }
     
     
     
-    class func respMediaFromJson(JSONdata : AnyObject) -> MediaApiModel {
+    class func respMediaFromJson(_ JSONdata : AnyObject) -> MediaApiModel {
         let mediaApi = MediaApiModel()
         
-        mediaApi.mediaExtension = Utilities.isValueNull(JSONdata.objectForKey("extension")!) as! String
-        mediaApi.supportedsizes = Utilities.isValueNull(JSONdata.objectForKey("supportedsizes")!) as! String
+        mediaApi.mediaExtension = Utilities.isValueNull(JSONdata.object(forKey: "extension")! as AnyObject) as! String
+        mediaApi.supportedsizes = Utilities.isValueNull(JSONdata.object(forKey: "supportedsizes")! as AnyObject) as! String
         
-        
-        
+                
         let mediaDetailsList : NSMutableArray = NSMutableArray()
-        let mediaDetails : NSArray = JSONdata.objectForKey("mediaFileDetailsList") as! NSArray
+        let mediaDetails : NSArray = JSONdata.object(forKey: "mediaFileDetailsList") as! NSArray
         
-        for var i = 0; i < mediaDetails.count; i++ {
+        for i in 0 ..< mediaDetails.count {
             
             let mediaFileDetails = MediaFileDetailsApiModel()
             
-            let dict : NSDictionary = mediaDetails.objectAtIndex(i) as! NSDictionary
+            let dict : NSDictionary = mediaDetails.object(at: i) as! NSDictionary
             
-            mediaFileDetails.mediapath = Utilities.isValueNull(dict.objectForKey("mediapath")!) as! String
-            mediaFileDetails.mediatype = Utilities.isValueNull(dict.objectForKey("mediatype")!) as! String
+            mediaFileDetails.mediapath = Utilities.isValueNull(dict.object(forKey: "mediapath")! as AnyObject) as! String
+            mediaFileDetails.mediatype = Utilities.isValueNull(dict.object(forKey: "mediatype")! as AnyObject) as! String
             
-            mediaDetailsList.addObject(mediaFileDetails)
+            mediaDetailsList.add(mediaFileDetails)
         }
         
         mediaApi.mediaFileDetailsList = mediaDetailsList
@@ -138,58 +137,59 @@ class Communicator {
     }
     
     
-    class func ProfileFromJson(JSONdata : AnyObject) -> MemberApiModel {
+    class func ProfileFromJson(_ JSONdata : AnyObject) -> MemberApiModel {
         var memberEntity : MemberApiModel!
         memberEntity = self.memberDetailsEntity(JSONdata as! NSDictionary)
         return memberEntity
     }
 
     
-    class func respMessageCodesFromJson(JSONdata : AnyObject) -> MessagesApiModel {
+    class func respMessageCodesFromJson(_ JSONdata : AnyObject) -> MessagesApiModel {
         
         let messagesEntity = MessagesApiModel()
         
-        if(JSONdata.objectForKey("message") != nil){
-            messagesEntity.message = Utilities.isValueNull(JSONdata.objectForKey("message")!) as! String
-            messagesEntity.messageCode = Utilities.isValueNull(JSONdata.objectForKey("messageCode")!) as! String
+        if(JSONdata.object(forKey: "message") != nil){
+            
+            messagesEntity.message = Utilities.isValueNull(JSONdata.object(forKey: "message")! as AnyObject) as! String
+            messagesEntity.messageCode = Utilities.isValueNull(JSONdata.object(forKey: "messageCode")! as AnyObject) as! String
         }
         
-        if(JSONdata.objectForKey("error") != nil){
-            messagesEntity.message = Utilities.isValueNull(JSONdata.objectForKey("error_description")!) as! String
-            messagesEntity.messageCode = Utilities.isValueNull(JSONdata.objectForKey("error")!) as! String
+        if(JSONdata.object(forKey: "error") != nil){
+            messagesEntity.message = Utilities.isValueNull(JSONdata.object(forKey: "error_description")! as AnyObject) as! String
+            messagesEntity.messageCode = Utilities.isValueNull(JSONdata.object(forKey: "error")! as AnyObject) as! String
         }
         
         return messagesEntity
     }
     
     
-    class func respValidationMessageCodesFromJson(JSONdata : AnyObject) -> NSArray {
+    class func respValidationMessageCodesFromJson(_ JSONdata : AnyObject) -> NSArray {
         
         let validationArray : NSMutableArray = NSMutableArray()
         var errorsDict : NSDictionary!
         
         
-        if(JSONdata.objectForKey("errors") != nil){
-            let errorsArray : NSArray = JSONdata.objectForKey("errors") as! NSArray
+        if(JSONdata.object(forKey: "errors") != nil){
+            let errorsArray : NSArray = JSONdata.object(forKey: "errors") as! NSArray
             
-            for var i = 0; i < errorsArray.count; i++ {
-                errorsDict = errorsArray.objectAtIndex(i) as! NSDictionary
+            for i in 0 ..< errorsArray.count {
+                errorsDict = errorsArray.object(at: i) as! NSDictionary
                 let messagesEntity = ValidationMessagesApiModel()
                 
-                messagesEntity.message = Utilities.isValueNull(errorsDict.objectForKey("message")!) as! String
-                messagesEntity.messageCode = Utilities.isValueNull(errorsDict.objectForKey("messageCode")!) as! String
-                messagesEntity.objectName = Utilities.isValueNull(errorsDict.objectForKey("objectName")!) as! String
-                messagesEntity.propertyName = Utilities.isValueNull(errorsDict.objectForKey("propertyName")!) as! String
+                messagesEntity.message = Utilities.isValueNull(errorsDict.object(forKey: "message")! as AnyObject) as! String
+                messagesEntity.messageCode = Utilities.isValueNull(errorsDict.object(forKey: "messageCode")! as AnyObject) as! String
+                messagesEntity.objectName = Utilities.isValueNull(errorsDict.object(forKey: "objectName")! as AnyObject) as! String
+                messagesEntity.propertyName = Utilities.isValueNull(errorsDict.object(forKey: "propertyName")! as AnyObject) as! String
 
-                validationArray.addObject(messagesEntity)
+                validationArray.add(messagesEntity)
             }
         }else{
             errorsDict = JSONdata as! NSDictionary
             
             let messagesEntity = MessagesApiModel()
-            messagesEntity.message = Utilities.isValueNull(JSONdata.objectForKey("message")!) as! String
-            messagesEntity.messageCode = Utilities.isValueNull(JSONdata.objectForKey("messageCode")!) as! String
-            validationArray.addObject(messagesEntity)
+            messagesEntity.message = Utilities.isValueNull(JSONdata.object(forKey: "message")! as AnyObject) as! String
+            messagesEntity.messageCode = Utilities.isValueNull(JSONdata.object(forKey: "messageCode")! as AnyObject) as! String
+            validationArray.add(messagesEntity)
         }
         return validationArray
     }

@@ -11,18 +11,18 @@ import Alamofire
 
 @objc public protocol getMediaApiResponseDelegate {
     
-    optional func handleMedia(mediaEntity:MediaApiModel)
+    @objc optional func handleMedia(_ mediaEntity:MediaApiModel)
     
-    optional func handleMessages(messageCodeEntity: MessagesApiModel)
-    optional func handleValidationErrors(messageCodeEntityArray: NSArray) // multiple MessagesRespApiModel - 404(Validation errors)
-    optional func handleRefreshToken(JSON : AnyObject) // multiple MessagesRespApiModel - 404(Validation errors)
+    @objc optional func handleMessages(_ messageCodeEntity: MessagesApiModel)
+    @objc optional func handleValidationErrors(_ messageCodeEntityArray: NSArray) // multiple MessagesRespApiModel - 404(Validation errors)
+    @objc optional func handleRefreshToken(_ JSON : AnyObject) // multiple MessagesRespApiModel - 404(Validation errors)
     
 }
 
 
-public class MediaApi {
+open class MediaApi {
     
-    public var delegate: getMediaApiResponseDelegate?
+    open var delegate: getMediaApiResponseDelegate?
     var apiUrl : String = "api/media/v0/"
     
     var mediaUrl : String = "media"
@@ -31,17 +31,19 @@ public class MediaApi {
         
     }
     
-    public func getMedia(){
+    open func getMedia(){
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let userID = defaults.stringForKey("user_id")
+        let defaults = UserDefaults.standard
+        let userID = defaults.string(forKey: "user_id")
         
         let requestUrl =  "\(WAVELABS_HOST_URL)\(apiUrl)\(mediaUrl)?id=\(userID!)&mediafor=profile"
-        let token: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("access_token")!
+        let token: AnyObject = UserDefaults.standard.object(forKey: "access_token")! as AnyObject
         
-        Alamofire.request(.GET, requestUrl, parameters: nil, encoding:.JSON, headers : ["Authorization" : "Bearer \(token)"]).responseJSON
-            { response in switch response.result {
-            case .Success(let JSON):
+        Alamofire.request(requestUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization" : "Bearer \(token)"]).responseJSON {
+            response in
+        
+            switch response.result {
+            case .success(let JSON):
                 let jsonResp = JSON as! NSDictionary
                 
                 if(response.response?.statusCode == 200){
@@ -53,31 +55,33 @@ public class MediaApi {
                     self.messagesErrorsCodes(jsonResp)
                 }
                 
-            case .Failure(let error):
+            case .failure(let error):
                 print("Request failed with error: \(error)")
             }
         }
+        
+        
     }
     
     
-    public func uploadMedia(mediaFor : NSString, imgName: NSString,userID : NSString){
+    open func uploadMedia(_ mediaFor : NSString, imgName: NSString,userID : NSString){
         let requestUrl = "\(WAVELABS_HOST_URL)\(apiUrl)\(mediaUrl)"
         
-        let token: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("access_token")!
+        let token: AnyObject = UserDefaults.standard.object(forKey: "access_token")! as AnyObject
         
-        let nsDocumentDirectory = NSSearchPathDirectory.DocumentDirectory
-        let nsUserDomainMask    = NSSearchPathDomainMask.UserDomainMask
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
         
         var fileName : String = ""
         var storePath : String = ""
-        var imageData : NSData = NSData()
+        var imageData : Data = Data()
         
         let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
         if let dirPath = paths.first {
-            let imagesDirectory = (dirPath as NSString).stringByAppendingPathComponent("Images")
+            let imagesDirectory = (dirPath as NSString).appendingPathComponent("Images")
             
             fileName  =  NSString(format:"%@.png", userID) as String
-            storePath = (imagesDirectory as NSString).stringByAppendingPathComponent(fileName)
+            storePath = (imagesDirectory as NSString).appendingPathComponent(fileName)
             imageData = UIImageJPEGRepresentation(UIImage(contentsOfFile: storePath)!, 1)!
         }
         
@@ -92,19 +96,17 @@ public class MediaApi {
         
         
         Alamofire.upload(
-            .POST,
-            requestUrl,
-            headers : ["Authorization" : "Bearer \(token)"],
             multipartFormData: { multipartFormData in
-                multipartFormData.appendBodyPart(data: (value.dataUsingEncoding(NSUTF8StringEncoding)!), name: key)
-                multipartFormData.appendBodyPart(data: (value1.dataUsingEncoding(NSUTF8StringEncoding)!), name: key1)
-                multipartFormData.appendBodyPart(data: imageData, name: "\(filename)",fileName: imgName as String,mimeType: "image/png")
-            },
+                multipartFormData.append((value.data(using: String.Encoding.utf8.rawValue)!), withName: key)
+                multipartFormData.append((value1.data(using: String.Encoding.utf8.rawValue)!), withName: key1)
+                multipartFormData.append(imageData, withName: "\(filename)", fileName: imgName as String, mimeType: "image/png")
+        },
+            to: requestUrl,
             encodingCompletion: { encodingResult in
                 switch encodingResult {
-                case .Success(let upload, _, _):
+                case .success(let upload, _, _):
                     upload.responseJSON { response in switch response.result {
-                    case .Success(let JSON):
+                    case .success(let JSON):
                         print("Success with JSON: \(JSON)")
                         
                         let jsonResp = JSON as! NSDictionary
@@ -117,27 +119,29 @@ public class MediaApi {
                         }else{
                             self.messagesErrorsCodes(jsonResp)
                         }
-                        
-                    case .Failure(let error):
+                    case .failure(let error):
                         print("Request failed with error: \(error)")
                     }
-                        
                         debugPrint(response)
                     }
-                case .Failure(let encodingError):
+                case .failure(let encodingError):
                     print(encodingError)
                 }
-            }
+        }
         )
+        
+        
+        
+        
     }
     
     
-    public func validationErrorsCodes(JSON : AnyObject){
+    open func validationErrorsCodes(_ JSON : AnyObject){
         let validationErrors : NSArray = Communicator.respValidationMessageCodesFromJson(JSON)
         self.delegate!.handleValidationErrors!(validationErrors)
     }
     
-    public func messagesErrorsCodes(JSON : AnyObject){
+    open func messagesErrorsCodes(_ JSON : AnyObject){
         let messageCodeEntity : MessagesApiModel = Communicator.respMessageCodesFromJson(JSON)
         self.delegate!.handleMessages!(messageCodeEntity)
     }    

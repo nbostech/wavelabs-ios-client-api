@@ -8,9 +8,9 @@
 
 import Foundation
 
-@objc public class MediaFileDetailsApiModel:NSObject {
+@objc open class MediaFileDetailsApiModel:NSObject {
     // MARK: Properties
-    public var mediapath : String = ""
-    public var mediatype : String = ""
+    open var mediapath : String = ""
+    open var mediatype : String = ""
     
 }
