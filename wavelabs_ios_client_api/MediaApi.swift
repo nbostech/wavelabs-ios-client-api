@@ -107,7 +107,6 @@ open class MediaApi {
                 case .success(let upload, _, _):
                     upload.responseJSON { response in switch response.result {
                     case .success(let JSON):
-                        print("Success with JSON: \(JSON)")
                         
                         let jsonResp = JSON as! NSDictionary
                         

@@ -119,7 +119,7 @@ open class UsersApi {
         
             switch response.result {
             case .success(let JSON):
-                print("Success with JSON: \(JSON)")
+
                 let jsonResp = JSON
                 if(response.response?.statusCode == 200){
                     let memberDetails : MemberApiModel = Communicator.ProfileFromJson(jsonResp as AnyObject)
