@@ -110,7 +110,6 @@ open class UsersApi {
         let requestUrl = "\(WAVELABS_HOST_URL)\(identityApiUrl)\(userID)"
         let token: AnyObject = utilities.getUserAccessToken() as AnyObject
         
-        
         Alamofire.request(requestUrl, method: .get, parameters: utilities.getParams(profile), encoding: JSONEncoding.default, headers: ["Authorization" : "Bearer \(token)"]).responseJSON {
             response in
         

@@ -29,7 +29,6 @@ open class SocialApi {
         
     }
     
-    
     var socialIdentityApiUrl : String = "api/identity/v0/auth/social/"
     
     var fbConnectUrl : String = "facebook/connect"
@@ -71,11 +70,7 @@ open class SocialApi {
             case .failure(let error):
                 print("Request failed with error: \(error)")
             }
-        
-        
         }
-        
-        
     }
     
     open func socialWebLogin(_ socialType : String) {

@@ -58,8 +58,6 @@ open class MediaApi {
                 print("Request failed with error: \(error)")
             }
         }
-        
-        
     }
     
     
