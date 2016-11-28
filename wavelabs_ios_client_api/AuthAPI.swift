@@ -120,7 +120,6 @@ open class AuthApi {
         
             switch response.result {
             case .success(let JSON):
-                print("Success with JSON: \(JSON)")
                 
                 let jsonResp = JSON
                 
