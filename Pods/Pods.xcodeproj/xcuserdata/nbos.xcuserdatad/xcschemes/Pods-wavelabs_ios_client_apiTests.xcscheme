@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1A054B428822F682A53FEB32D20B9BD6"
+               BlueprintIdentifier = "C51C4901FF4D9E2B10A4CC18634B959F"
                BuildableName = "Pods_wavelabs_ios_client_apiTests.framework"
                BlueprintName = "Pods-wavelabs_ios_client_apiTests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1A054B428822F682A53FEB32D20B9BD6"
+            BlueprintIdentifier = "C51C4901FF4D9E2B10A4CC18634B959F"
             BuildableName = "Pods_wavelabs_ios_client_apiTests.framework"
             BlueprintName = "Pods-wavelabs_ios_client_apiTests"
             ReferencedContainer = "container:Pods.xcodeproj">
