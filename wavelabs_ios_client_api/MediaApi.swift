@@ -16,7 +16,6 @@ import Alamofire
     @objc optional func handleMessages(_ messageCodeEntity: MessagesApiModel)
     @objc optional func handleValidationErrors(_ messageCodeEntityArray: NSArray) // multiple MessagesRespApiModel - 404(Validation errors)
     @objc optional func handleRefreshToken(_ JSON : AnyObject) // multiple MessagesRespApiModel - 404(Validation errors)
-    
 }
 
 
