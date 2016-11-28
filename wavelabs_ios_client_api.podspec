@@ -8,7 +8,7 @@ s.summary = "wavelabs_ios_client_api desc"
 s.requires_arc = true
 
 # 2
-s.version = "0.3.1"
+s.version = "0.3.2"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -36,7 +36,7 @@ s.source = { :git => "https://github.com/nbostech/wavelabs_ios_client_api.git", 
 
 # 7
 s.framework = "UIKit"
-s.dependency 'Alamofire'
+s.dependency 'Alamofire', '~> 4.0'
 s.dependency 'MBProgressHUD', '~> 0.9.0'
 
 # 8
