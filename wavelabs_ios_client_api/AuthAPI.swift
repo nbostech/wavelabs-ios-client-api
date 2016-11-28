@@ -137,9 +137,7 @@ open class AuthApi {
                 print("Request failed with error: \(error)")
             }
         
-        }
-        
-        
+        }        
     }
     
     open func changePassword(_ changePsw : NSDictionary) {

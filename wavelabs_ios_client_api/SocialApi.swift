@@ -50,9 +50,7 @@ open class SocialApi {
         
         let requestUrl = "\(WAVELABS_HOST_URL)\(socialIdentityApiUrl)\(socialConnectUrl)"
         let token: AnyObject = utilities.getClientAccessToken() as AnyObject
-        
-        
-        
+                
         Alamofire.request(requestUrl, method: .post, parameters: utilities.getParams(socialLoginDetails), encoding: JSONEncoding.default, headers: ["Authorization" : "Bearer \(token)"]).responseJSON {
             response in
         

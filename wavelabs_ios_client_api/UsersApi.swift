@@ -39,7 +39,6 @@ open class UsersApi {
         let requestUrl = "\(WAVELABS_HOST_URL)\(identityApiUrl)\(rigistrationUrl)"
         let token: AnyObject = utilities.getClientAccessToken() as AnyObject
         
-        
         Alamofire.request(requestUrl, method: .post, parameters: utilities.getParams(userRegister), encoding: JSONEncoding.default, headers: ["Authorization" : "Bearer \(token)"]).responseJSON {
             response in
         
