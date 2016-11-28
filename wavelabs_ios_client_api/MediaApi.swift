@@ -64,7 +64,7 @@ open class MediaApi {
     open func uploadMedia(_ mediaFor : NSString, imgName: NSString,userID : NSString){
         let requestUrl = "\(WAVELABS_HOST_URL)\(apiUrl)\(mediaUrl)"
         
-        let token: AnyObject = UserDefaults.standard.object(forKey: "access_token")! as AnyObject
+//        let token: AnyObject = UserDefaults.standard.object(forKey: "access_token")! as AnyObject
         
         let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
         let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
