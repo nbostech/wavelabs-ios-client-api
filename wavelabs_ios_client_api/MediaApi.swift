@@ -82,7 +82,6 @@ open class MediaApi {
             imageData = UIImageJPEGRepresentation(UIImage(contentsOfFile: storePath)!, 1)!
         }
         
-        
         let key = "id"
         let value = userID
         
@@ -90,7 +89,6 @@ open class MediaApi {
         let value1 = mediaFor
         
         let filename = "file"
-        
         
         Alamofire.upload(
             multipartFormData: { multipartFormData in

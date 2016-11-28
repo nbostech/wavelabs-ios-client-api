@@ -92,7 +92,6 @@ open class UsersApi {
                 print("Request failed with error: \(error)")
             }
         }
-        
     }
     
     open func updateProfile(_ profile : NSDictionary) {
