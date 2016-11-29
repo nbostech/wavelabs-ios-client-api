@@ -53,7 +53,6 @@ open class SocialApi {
         Alamofire.request(requestUrl, method: .post, parameters: utilities.getParams(socialLoginDetails), encoding: JSONEncoding.default, headers: ["Authorization" : "Bearer \(token)"]).responseJSON {
             response in
         
-        
             switch response.result {
             case .success(let JSON):
                 

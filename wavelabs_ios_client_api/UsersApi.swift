@@ -128,7 +128,6 @@ open class UsersApi {
                 print("Request failed with error: \(error)")
             }
         }        
-        
     }
     
     open func validationErrorsCodes(_ JSON : AnyObject){

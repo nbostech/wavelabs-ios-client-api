@@ -41,10 +41,7 @@ open class AuthApi {
     var refreshTokenUrl : String = "oauth/token"
     
     open var delegate: getAuthApiResponseDelegate?
-    
-    
     var utilities : Utilities = Utilities()
-    
     
     public init() {
         
